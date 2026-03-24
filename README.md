@@ -7,11 +7,11 @@ Why using Ethereum/AVAX ?
 
 
 Why using Hardhat to do it automatically ?
---> Remix does not permit us to deploy automatically a contract, it does not even provide an API. Other solutions exists like Truffle... but Hardhat provides better debugging infos (which is great as a beginner), and is overall more beginner-friendly.
+--> Hardhat provides better debugging infos (which is great as a beginner), and is overall more beginner-friendly than Truffle... Moreover, I already used hardhat in Tokenizer.
 
 
-Why using ERC20 ?
---> Because I decided to use Ethereum, I had to respect the standards of the block chain. For Ethereum, the standard is ERC20.
+Why using ERC721 ?
+--> Because I decided to use Ethereum, I had to respect the standards of the block chain. For Ethereum, the standard for NFT is ER721.
 
 
 Why using Solidity ?
