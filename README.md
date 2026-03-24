@@ -21,6 +21,6 @@ Why using Solidity ?
 What will you find in this repo ?
 
 --> In ./code/: The code of the art42 NFT.
---> In ./deployment/: Automatic compilation and deployment: just type make.
+--> In ./deployment/: Automatic compilation and deployment: just type make. (need .env)
 --> In ./documentation/: A complete walktrough on how to deploy and use the token.
---> In ./mint/: ??
+--> In ./mint/: The image of castle42.
