@@ -1,0 +1,9 @@
+{
+  "name": "castle42",
+  "description": "The Great 42 Castle by kbaridon.",
+  "image": "https://gateway.pinata.cloud/ipfs/bafybeihcf5dcfhze4hqsrmvzg7mjreywbd5ziobkiru2shtjjdiylmai4e",
+  "attributes": [
+    { "trait_type": "Artist", "value": "kbaridon" },
+    { "trait_type": "Title",  "value": "The Great 42 Castle" }
+  ]
+}

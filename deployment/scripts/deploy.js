@@ -9,12 +9,12 @@ async function main() {
   const balance = await ethers.provider.getBalance(deployer.address);
   console.log("Account balance:", ethers.formatEther(balance), "AVAX");
 
-  const IMAGE_URI         = "ipfs://bafybeihcf5dcfhze4hqsrmvzg7mjreywbd5ziobkiru2shtjjdiylmai4e";
+  const METADATA_URI      = "ipfs://bafkreifdwa5jxm7ndnzoybqfa2z7q43yvuua6ufdx5bsujbyqfx5ive7e4";
   const ROYALTY_RECIPIENT = deployer.address;
   const ROYALTY_BPS       = 500; // 5%
 
   const Castle42 = await ethers.getContractFactory("Castle42");
-  const castle42 = await Castle42.deploy(IMAGE_URI, ROYALTY_RECIPIENT, ROYALTY_BPS);
+  const castle42 = await Castle42.deploy(METADATA_URI, ROYALTY_RECIPIENT, ROYALTY_BPS);
   await castle42.waitForDeployment();
 
   console.log("\n✅ Castle42 deployed at:", castle42.target);

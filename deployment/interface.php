@@ -215,7 +215,7 @@ async function w(fn, ids) {
   } catch(e) { log(decodeError(e) || e.reason || e.message, '#e05252'); }
 }
 
-const IPFS_GW = 'https://ipfs.io/ipfs/';
+const IPFS_GW = 'https://gateway.pinata.cloud/ipfs/';
 
 function ipfsToHttp(uri) {
   if (uri.startsWith('ipfs://')) return IPFS_GW + uri.slice(7);
@@ -228,8 +228,13 @@ async function preview() {
     const tokenId = document.getElementById('p_id').value;
     log('Fetching tokenURI…');
     const uri  = await contract.tokenURI(tokenId);
-    const b64  = uri.replace('data:application/json;base64,', '');
-    const meta = JSON.parse(atob(b64));
+    let meta;
+    if (uri.startsWith('data:application/json;base64,')) {
+      meta = JSON.parse(atob(uri.replace('data:application/json;base64,', '')));
+    } else {
+      const res = await fetch(ipfsToHttp(uri));
+      meta = await res.json();
+    }
     const imgUrl = ipfsToHttp(meta.image || '');
     document.getElementById('nft-img').src = imgUrl;
     document.getElementById('nft-meta').textContent =

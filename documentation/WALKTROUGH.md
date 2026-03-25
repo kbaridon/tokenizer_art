@@ -25,6 +25,7 @@ To have a private key: Metamask > click your account name > account details > ex
 
 2. Do "make"
 
+--> To see your NFT, go to the NFT section on Metamask.
 
 ---
 Metamask --> Download Metamask: https://metamask.io/download Login* Go to network: add a custom network: Name: Avalanche Fuji Testnet RPC URL: https://api.avax-test.network/ext/bc/C/rpc Chain ID: 43113 Currency symbol: AVAX Block Explorer URL: https://subnets-test.avax.network

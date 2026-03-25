@@ -3,7 +3,6 @@ pragma solidity ^0.8.24;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Base64.sol";
 
 contract Castle42 is ERC721, Ownable {
 
@@ -19,25 +18,15 @@ contract Castle42 is ERC721, Ownable {
 
     uint256 private _nextTokenId;
 
-    //constructor: depends on ERC721 and Ownable libraries: encrypt metadatas in a json
-    constructor(string memory imageURI_, address royaltyRecipient_, uint96 royaltyBps_)
+    //constructor: takes a metadata IPFS URI (ipfs://CID pointing to metadata.json)
+    constructor(string memory metadataURI_, address royaltyRecipient_, uint96 royaltyBps_)
         ERC721("castle42", "C42")
         Ownable(msg.sender)
     {
         require(royaltyBps_ <= 1000, "Max 10%");
         royaltyRecipient = royaltyRecipient_;
         royaltyBps       = royaltyBps_;
-
-        bytes memory json = abi.encodePacked(
-            '{"name":"', TITLE, '",'
-            '"description":"The Great 42 Castle by ', ARTIST, '.",'
-            '"image":"', imageURI_, '",'
-            '"attributes":['
-                '{"trait_type":"Artist","value":"', ARTIST, '"},'
-                '{"trait_type":"Title","value":"', TITLE, '"}'
-            ']}'
-        );
-        _tokenURIData = string(abi.encodePacked("data:application/json;base64,", Base64.encode(json)));
+        _tokenURIData    = metadataURI_;
     }
 
     //Return the metadatas (encrypted) in base 64
